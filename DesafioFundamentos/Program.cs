@@ -6,11 +6,14 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 decimal precoInicial = 0;
 decimal precoPorHora = 0;
 
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
-                  "Digite o preço inicial:");
+Console.WriteLine(" -------------------------------------------- \n" +
+                  "|          SISTEMA DE ESTACIONAMENTO         |\n" +
+                  " -------------------------------------------- \n" +
+                  "Digite o preço cobrado inicialmente para guardar o veículo:");
+
 precoInicial = Convert.ToDecimal(Console.ReadLine());
 
-Console.WriteLine("Agora digite o preço por hora:");
+Console.WriteLine("Agora digite o preço cobrado por hora adicional:");
 precoPorHora = Convert.ToDecimal(Console.ReadLine());
 
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
@@ -23,11 +26,12 @@ bool exibirMenu = true;
 while (exibirMenu)
 {
     Console.Clear();
-    Console.WriteLine("Digite a sua opção:");
+    Console.WriteLine("Digite uma opção:");
     Console.WriteLine("1 - Cadastrar veículo");
     Console.WriteLine("2 - Remover veículo");
     Console.WriteLine("3 - Listar veículos");
-    Console.WriteLine("4 - Encerrar");
+    Console.WriteLine("4 - Verificar valores das taxas");
+    Console.WriteLine("5 - ENCERRAR");
 
     switch (Console.ReadLine())
     {
@@ -44,16 +48,22 @@ while (exibirMenu)
             break;
 
         case "4":
+            es.VerificarValores();
+            break;
+
+        case "5":
             exibirMenu = false;
             break;
 
         default:
-            Console.WriteLine("Opção inválida");
+            Console.WriteLine("Opção inválida!");
             break;
     }
 
-    Console.WriteLine("Pressione uma tecla para continuar");
+    Console.WriteLine("Pressione qualquer tecla para continuar.");
     Console.ReadLine();
 }
 
-Console.WriteLine("O programa se encerrou");
+Console.WriteLine(" -------------------------------------------- \n" +
+                  "|             PROGRAMA ENCERRADO!            |\n" +
+                  " -------------------------------------------- \n");
